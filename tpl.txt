@@ -1,0 +1,93 @@
+//multithreading //synchronization
+
+
+
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+//why task parallel library?
+ public class database
+{
+     public static void fetchdata()
+    {
+        Thread.Sleep(10000);
+        Console.WriteLine("prepared");
+    }
+}
+public class BLL
+{
+    public static void caller()
+    {
+        database.fetchdata();
+    }
+}
+public class customer
+{
+    public static void Main()
+    {         BLL.caller();
+        Console.WriteLine("when i will execute...");    
+ }
+}    
+
+//tpl by using task
+
+
+
+
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+//why task parallel library? public class database
+class databse
+{
+     public static void fetchdata()
+    {
+        Thread.Sleep(10000);
+        Console.WriteLine("prepared");
+    }
+}
+public class BLL
+{
+    public static void caller()
+    {
+        Task.Run(new Action(database.fetchdata)); //at this point new thread will be generated over seperate processor
+        //database.fetchdata();     
+}
+}
+public class customer
+{
+    public static void Main()
+    {         BLL.caller();
+        Console.WriteLine("when i will execute...");
+        Console.ReadLine();     }
+} 
+
+//TPL with the help of task
+
+
+
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+//why task parallel library? public class database
+{
+     public static void fetchdata()
+    {
+        Thread.Sleep(10000);
+        Console.WriteLine("prepared");
+    }
+}
+public class BLL
+{
+    public static void caller()
+    {
+        Task.Run(new Action(database.fetchdata)); //at this point new thread will be generated over seperate processor
+        //database.fetchdata();     }
+}
+public class customer
+{
+    public static void Main()
+    {         BLL.caller();
+        Console.WriteLine("when i will execute...");
+        Console.ReadLine();     }
+}
