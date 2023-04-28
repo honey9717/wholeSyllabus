@@ -1,0 +1,25 @@
+---------- async and await code -------------
+
+
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+
+public class Program
+{
+    public static async void Method()
+    {
+        await Task.Run(new Action(Longtask));
+        Console.WriteLine("new thread");
+    }
+    public static void Longtask()
+    {
+        Thread.Sleep(10000);
+    }
+    public static void Main()
+    {
+        Method();
+        Console.WriteLine("main thread");
+        Console.ReadLine();
+    }
+}
