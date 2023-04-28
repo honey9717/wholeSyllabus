@@ -1,0 +1,68 @@
+thread start code 
+
+using System;
+using System.Threading;
+
+
+    class Myapp
+    {
+        public  void MyWork()
+        {
+            Thread.Sleep(10000);
+            Console.WriteLine(" going to karol bagh.... time consuming");
+
+        }
+        public void mywork1()
+        {
+            Console.WriteLine("local task");
+        }
+    }
+    class client 
+    {
+        public static void Main()  // Main thread 
+        {
+            Myapp obj=new Myapp();
+            Thread th=new Thread(new ThreadStart(obj.MyWork)); //seprate work
+            th.Start();// execute 
+            
+            obj.mywork1(); // why i suffer 
+
+        }
+    }
+
+
+
+
+parameterized thread start 
+
+
+using System;
+using System.Threading;
+
+
+    class Myapp
+    {
+        public  void MyWork(object price )
+        {
+            Thread.Sleep(10000);
+            Console.WriteLine(" going to karol to purchase clothes ..."+" "+price);
+
+        }
+        public void mywork1()
+        {
+            Console.WriteLine("local task");
+        }
+    }
+    class client 
+    {
+        public static void Main()  // Main thread 
+        {
+            Myapp obj=new Myapp();
+            Thread th=new Thread(new ParameterizedThreadStart(obj.MyWork)); //seprate work
+            th.Start("100");// execute 
+            
+            obj.mywork1(); // why i suffer 
+
+        }
+    }
+
