@@ -1,0 +1,110 @@
+INDEXER ---- basically it is a member of class & if we define indexer in our class our class behaving like a virtual array 
+    it is array of properties
+
+
+
+
+using System;
+ 
+
+namespace Indexer
+{
+    public class Employee
+    {
+        int Eno;
+        string Ename, Job, Dname, Location;
+        double Salary;
+
+        public Employee(int eno, string ename, string job, string dname, string location, double salary)
+        {
+            this.Eno = eno;
+            this.Ename = ename;
+            this.Job = job;
+            this.Dname = dname;
+            this.Location = location;
+            this.Salary = salary;
+        }
+        public object this[int index]
+        {
+            get
+            {
+                if(index==0)
+                    return Eno;
+
+                else if(index==1)
+                
+                    return Ename;
+                
+                else if(index==2)
+                
+                    return Job;
+                
+                else if(index==3)
+                
+                    return Dname;
+                
+                else if(index==4)
+                
+                    return Location;
+                
+                else if (index==5)
+                        
+                    return Salary;
+                    return null;
+                
+                
+            }
+            set
+            {
+                if (index == 1)
+                    Eno = (int)value;       //unboxing because we take index of object type so we need to do unboxing
+                else if(index==2)
+                    Ename = (string)value;
+                else if(index==3)
+                    Job = (string)value;
+                else if(index==4)
+                    Dname = (string)value;
+                else if(index==5)
+                    Location = (string)value;
+                else if (index==6)
+                    Salary = (double)value;
+            }
+
+        }
+    }
+}
+
+
+program.cs
+
+using System;
+
+
+namespace Indexer
+{
+    public class TestEmployee
+    {
+        public static void Main()
+        {
+            Employee obj = new Employee(101,"honey","SE","abc","delhi",20000.90);
+            Console.WriteLine("Eno:" + obj[0]);
+            Console.WriteLine("Ename:" + obj[1]);
+            Console.WriteLine("Job:" + obj[2]);
+            Console.WriteLine("Dname:" + obj[3]);
+            Console.WriteLine("Location:" + obj[4]);
+            Console.WriteLine("Salary:" + obj[5]);
+
+            obj[1] = 102;
+            obj[3] = "manager";
+
+            Console.WriteLine();
+
+            Console.WriteLine("Eno:" + obj[0]);
+            Console.WriteLine("Ename:" + obj[1]);
+            Console.WriteLine("Job:" + obj[2]);
+            Console.WriteLine("Dname:" + obj[3]);
+            Console.WriteLine("Location:" + obj[4]);
+            Console.WriteLine("Salary:" + obj[5]);
+        }
+    }
+}
