@@ -1,0 +1,155 @@
+using System;
+namespace IT 
+{
+
+public class ITPark
+{
+    public virtual void Company()
+    {
+        Console.WriteLine(" IT Park 63 ");
+    }
+}
+public class Taaza:ITPark
+{
+    public override void Company()
+    {
+        Console.WriteLine(" IT Park 63 and Company name is Taaza");
+
+    }
+}
+ public class MyApp
+ {
+    public static void Main()
+    {
+        //how run time polymorphism takes place
+        ITPark obj= new Taaza();
+        obj.Company();    //runtime polymorphism
+    }
+
+ }
+}
+
+
+agr abstract lgaya toh derived class hona must hai 
+//abstract class with properties
+
+
+using System;
+namespace Shopping
+{
+
+abstract class LG 
+{
+    public abstract string LOGO
+    {
+        get;
+    }
+    
+
+}
+class Tv:LG
+{
+    public override string LOGO 
+    {
+        get
+        {
+            return "LG" ;
+        }
+    }
+
+}
+
+class Shop 
+{
+    public static void Main()
+    {
+        LG obj = new Tv();
+        Console.WriteLine(obj.LOGO);
+
+    }
+}
+}
+
+// constructor chaining
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+//Constructor chaining-> which is first call the constructor of base class by using the child class obj then call 
+namespace OOPS_Concepts
+{
+    
+    public class IT
+    {
+        public IT()
+        {
+            Console.WriteLine("IT base");
+        }
+        public IT(string np)
+        {
+            Console.WriteLine("der" + np);
+        }
+    }
+    public class Taazaa: IT
+    {
+        public Taazaa()
+        {
+            Console.WriteLine("Taazaa derived");
+        }
+        public Taazaa(string np):base()
+        {
+            Console.WriteLine("der" + np);
+        }
+    }
+
+    public class MyApp
+    {
+        public static void Main()
+        {
+            Taazaa obj = new Taazaa("times");
+
+        }
+    }
+}
+
+// boxing unboxing
+
+using System;
+
+class Test
+{
+    public static void Main()
+    {
+        object x=" sandeep";  // boxing 
+        string y=(string)x;   //unboxing
+
+        Console.WriteLine(y);
+
+        var z=" deepa";  
+        z=12; //compile time check
+
+        
+    }
+}
+
+// dynamic 
+
+using System;
+
+class Test
+{
+    public static void Main()
+    {
+        shopping(312.50);
+        
+    }
+    public static void shopping(dynamic price)
+    {
+        Console.WriteLine(price*.2);
+
+    }
+}
+
+
