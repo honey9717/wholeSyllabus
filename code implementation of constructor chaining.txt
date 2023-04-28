@@ -1,0 +1,37 @@
+using System;
+
+
+namespace Constructor_Chaining
+{
+    public class Taazaa
+    {
+        public Taazaa() 
+        {
+            Console.WriteLine("parent class default Constructor");
+
+        }
+        public Taazaa(int id ,string name )
+        {
+            Console.WriteLine(id + " " + name);
+
+        }
+    }
+    public class Trainee:Taazaa
+    {
+        public Trainee() 
+        {
+            Console.WriteLine("child class default constructor ");
+
+                
+         }
+        public Trainee(int id) : base(22, "honey")         
+        {
+            Console.WriteLine(id);
+
+        }
+        public static void Main(string[] args)
+        {
+            Trainee obj = new Trainee(5);
+        }
+    }
+}
