@@ -1,0 +1,128 @@
+//normal program--------------------------------------------------------------------------
+
+using System;
+
+public class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("enter the value of x:");
+        int x=int.Parse(Console.ReadLine());
+        Console.WriteLine("enter the value of y:");
+        int y=int.Parse(Console.ReadLine());
+        int z=x/y;
+        Console.WriteLine("the result is z:");
+        Console.WriteLine("End the program:");
+        
+
+    }
+}
+
+--------------------------------------------------------------------------------
+After exception handling 
+we put the code in try catch blocks to handle the exception 
+----------------------------------------------------------------------
+using System;
+
+public class Program
+{
+    static void Main()
+    {
+        try                // here we put the statements which can cause the run time error 
+        {
+        Console.WriteLine("enter the value of x:");
+        int x=int.Parse(Console.ReadLine());
+        Console.WriteLine("enter the value of y:");
+        int y=int.Parse(Console.ReadLine());
+        int z=x/y;
+        Console.WriteLine("the result is z:");
+        }
+        catch (DivideByZeroException ex1)           // here we have the statements which will execute only when there is run time errors
+        {
+            Console.WriteLine(ex1.Message);
+        }
+        Console.WriteLine("End the program:");
+        
+
+    }
+}
+
+------------------------------------------------------------------------------------------------------------
+//we can make multiple catch because if one catch is not able to catch the instance then other catch will catch ..........
+
+using System;
+
+public class Program
+{
+    static void Main()
+    {
+        try
+        {
+        Console.WriteLine("enter the value of x:");
+        int x=int.Parse(Console.ReadLine());
+        Console.WriteLine("enter the value of y:");
+        int y=int.Parse(Console.ReadLine());
+        int z=x/y;
+        Console.WriteLine("the result is z:");
+        }
+        catch (DivideByZeroException ex1)
+        {
+            Console.WriteLine(ex1.Message);    //predefined error message
+        }
+        catch(FormatException ex2)
+        {
+            Console.WriteLine("input must be numeric value ");     //user defined error message 
+
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine(ex.Message);      //it will catch the rest  of the exception
+        }
+        Console.WriteLine("End the program:");
+        
+
+    }
+}
+
+
+---------------------Application Exception  ----------------------------------------------------------------
+
+
+//This Exception is Handled by programmer itself
+//steps:
+//Define a class inherting from any Exception Class so that new class become the exception class
+
+
+
+using System;
+public class DivideByOddNoException:ApplicationException
+{
+    public override string Message
+    {
+        get
+        {
+            return "Attempted to divide by odd number";
+        }
+    }
+}
+
+public class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("enter the value of x:");
+        int x = int.Parse(Console.ReadLine());
+        Console.WriteLine("enter the value of y:");
+        int y = int.Parse(Console.ReadLine());
+        if(y%2>0)
+        {
+           // throw new ApplicationException("Divisor value cannot be odd number:");                           //Application Exception 
+           throw new DivideByOddNoException();
+        }
+        int z = x / y;
+        Console.WriteLine("the result is z:");
+        Console.WriteLine("End the program:");
+
+
+    }
+}
