@@ -1,0 +1,43 @@
+using System;
+
+namespace Methodhiding
+{
+    public  class revision
+    {
+        public virtual void Test1()     //method overriding ....... we have to use virtual methods 
+        {
+            Console.WriteLine("method 1 is ");
+        }
+        public void Test2()
+        {
+            Console.WriteLine("method 2 is ");
+        }
+        
+    }
+    public class practise:revision
+    {
+        public override void Test1()                                 // function overriding is reimplementing parent class methods 
+        {
+            Console.WriteLine("Method 1 is called");
+        }
+        public new void  Test2()               //method hiding in this we can implement a parent class method under the child class method withod using virtual methods
+        {
+            Console.WriteLine("method  ");
+        }
+
+        public void ParentTest1()
+        {
+            base.Test1 ();                  // you can call parent class method by using base keyword .....
+                                            // but we cannot use this and base in static blocks
+        }
+        static void Main()
+        {
+            revision obj =new practise(); // run time polymorphism
+            obj.Test1();
+            
+            practise p = new practise();   //method hiding   
+            p.Test1();
+            p.Test2();
+        }
+
+    }
