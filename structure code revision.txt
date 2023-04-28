@@ -1,0 +1,23 @@
+//////structure code revision
+
+
+using System;
+
+struct MyStruct
+{
+    public void AssignValue()
+    {
+        int Id;
+        string name;
+        Id = 10;
+        name = "honey";
+        Console.WriteLine(Id+" "+name);
+    }
+    public static void Main()
+    {
+        MyStruct obj;
+        obj.AssignValue();
+    }
+
+
+}
