@@ -1,0 +1,58 @@
+//program.cs
+
+
+using System;
+
+namespace Mywork
+{
+    public class Client 
+    {
+       public static void Main()
+       {
+          Employee obj=new Employee();
+          obj.Employeesalary=2345;     //set
+          Console.WriteLine(obj.Employeesalary);  //get
+       }
+    }
+
+}
+
+
+// Developer1.cs
+
+
+using System;
+namespace Mywork
+{
+    public partial class Employee
+    {
+         private double salary;
+        
+    }
+}
+
+
+//Developer2.cs
+
+
+using System;
+
+namespace Mywork
+{
+    public partial class Employee
+    {
+         public double Employeesalary
+       {
+        get{
+            return salary;
+        }
+        set{
+            salary=value;
+        }
+       }
+       public void SalaryInfo()
+       {
+        Console.WriteLine("salary is : "+salary);
+       }
+    }
+}
