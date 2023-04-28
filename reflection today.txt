@@ -1,0 +1,117 @@
+//reflaxtion
+using System.Reflection;
+
+
+
+namespace taazaa;
+
+
+public class Employee
+{
+    public int walk()
+    {
+        return 2;
+    }
+}
+//reflaxtion
+using System;
+using System.Reflection;
+
+
+//use of reflation to load Dll dynamically to get the information.
+class browse
+{
+    public static void Main()
+    {
+        Assembly ptr= Assembly.LoadFrom(@"C:\test12\taazaa\bin\Debug\net7.0\taazaa.dll");
+        Type[] t=ptr.GetTypes();
+        foreach(var i in t)
+        {
+            Console.WriteLine(i.FullName);
+        }
+    }
+}
+
+//GC
+using System;
+class FileOperation
+{
+    ~FileOperation()
+    {
+        Console.WriteLine(" I am desc..");
+    }
+    public static void Main()
+    {
+        FileOperation obj = new FileOperation();
+        Console.WriteLine("inside main");
+        Console.ReadLine();
+    }
+
+}
+
+//garbage collection
+
+using system;
+class test
+{
+	~test()
+	{
+		Console.WriteLine("data");
+	}
+	public static void Main()
+	{
+		test t = new test();
+	}
+}
+
+//gc
+using System;
+
+class FileOperation: IDisposable
+
+{
+    public void connectToDatabase()
+    {
+        Console.WriteLine("date");
+    }
+    void IDisposable.Dispose()
+    {
+        Console.WriteLine("it will help to removed the unused object");
+    }
+    public static void Main()
+    {
+
+
+
+
+        using (FileOperation obj = new FileOperation())
+        {
+            obj.connectToDatabase();
+        }//dipose.At this  dispose func will call implicitly
+    }
+}
+
+//GC
+using System;
+
+class FileOperation: IDisposable
+
+{
+    public void connectToDatabase()
+    {
+        Console.WriteLine("date");
+    }
+    void IDisposable.Dispose()
+    {
+        Console.WriteLine("it will help to removed the unused object");
+    }
+    public static void Main()
+    {
+        //defining the scope of an object for explicit garbage collection
+        using (FileOperation obj = new FileOperation())
+        {
+            obj.connectToDatabase();
+        }//dipose.At this  dispose func will call implicitly
+    }
+}
+
