@@ -1,0 +1,49 @@
+ENum revision  ............
+  
+
+using System;
+
+
+public enum days
+{
+    Monday,
+    Tuesday,
+    Wednesday,
+}
+class TestClass
+{
+    static void Main()
+    {
+
+       // days d = (days)1;
+       days d =days.Tuesday; 
+
+
+        Console.WriteLine(d);
+    }
+}
+
+
+
+
+-------------------------------------------------------------------------------------
+
+
+using System;
+
+
+public enum days
+{
+    Monday,
+    Tuesday,
+    Wednesday,
+}
+class TestClass
+{
+    public static days MeetingDate { get; set; } = days.Monday;
+    static void Main()
+    {
+        Console.WriteLine(MeetingDate);
+
+    }
+}
