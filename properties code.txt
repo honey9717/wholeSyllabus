@@ -1,0 +1,181 @@
+propertiess revision
+
+
+
+
+using System;
+
+namespace recappp
+{
+    public  class Circle
+    {
+        public double radius=12.34;
+
+
+    }
+    public class TestCircle
+    {
+        public static void Main()
+        {
+            Circle c = new Circle();
+            double radius =c.radius;             // getting the old value
+            c.radius = 50.50;                   //setting the new value
+        }
+    }
+}
+
+
+
+--------------------------------------------------------------
+
+
+using System;
+
+namespace recappp
+{
+    public  class Circle
+    {
+        public double radius=12.34;
+        public double Getradius() // this method will provide you the get access
+        {
+            return radius;
+        }
+
+
+    }
+    public class TestCircle
+    {
+        public static void Main()
+        {
+            Circle c = new Circle();
+            double radius =c.Getradius();             
+                           
+        }
+    }
+}
+-----------------------------------------------------------------with the help of function we can provide get and set access and if make the variable public then we don't have control on variable anyone can get that value and anyone can set the value ...
+
+
+using System;
+
+namespace recappp
+{
+    public  class Circle
+    {
+        public double radius=12.34;
+        public double Getradius() // this method will provide you the get access
+        {
+            return radius;
+        }
+        public void setradius(double value ) // Provides only set access
+        {
+            radius = value;
+        }
+
+
+    }
+    public class TestCircle
+    {
+        public static void Main()
+        {
+            Circle c = new Circle();
+            double radius =c.Getradius();
+            c.setradius(56.20);
+                           
+        }
+    }
+}
+
+
+with help of property we can access the private variable outside the class
+
+properties is a combination of two methods .........
+
+---------------------------------------------------------------------------------------------
+using System;
+
+namespace recappp
+{
+    public  class Circle
+    {
+        public double radius=12.34;
+        
+        public double RadiusProperty
+        {
+            get { return radius; }
+            set { radius = value; }
+
+        }
+    }
+    public class TestCircle
+    {
+        public static void Main()
+        {
+           Circle c= new Circle();
+              
+           c.RadiusProperty=(56.20);                 // set the value
+           Console.WriteLine(c.RadiusProperty);      //get the value 
+                           
+        }
+    }
+}
+
+
+
+----------------------code of property for practise ----------------------------------------
+
+
+
+using System;
+
+namespace recappp
+{
+    public class Customer
+    {
+        int custid;
+        bool status;
+        string Cname;
+        double balance;
+
+        public int _custid
+        {
+            get { return _custid; }
+            set { _custid = value; }
+
+
+        }
+        public bool _status
+        {
+            get { return _status; }
+            set { _status = value; }
+        }
+        public string _Cname
+        {
+            get { return _Cname; }
+            set { _Cname = value; }
+        }
+        public double _balance
+        {
+            get { return _balance; }
+            set { _balance = value; }
+        }
+    }
+    public class TestCircle
+    {
+        public static void Main()
+        {
+           Customer c= new Customer();    
+           c._custid = 1;
+           Console.WriteLine("Customer id is "+c._custid);
+           c._status= true;
+           Console.WriteLine("Current Customer status:"+c._status);
+           c._Cname = "honey";
+           Console.WriteLine("Customer name is :"+c._Cname);
+           c._balance = 2000.90;
+           Console.WriteLine("Customer balance is :"+c._balance);
+
+                           
+        }
+    }
+}
+
