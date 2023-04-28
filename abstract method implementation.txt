@@ -1,0 +1,53 @@
+using System;
+
+public abstract class figure
+{
+    public double width, height, radius;
+    public const float pi = 3.14f;
+
+    public abstract double CalculateArea();
+
+
+}
+public class Rectangle : figure
+{
+    public Rectangle(double Width,double height)
+    {
+        this.width = Width;
+        this.height = height;
+
+    }
+    public override double CalculateArea()
+    {
+       return width* height;
+    }
+
+}
+public class Circle : figure
+{
+    public Circle(double radius)
+    {
+        this.radius = radius;
+    }
+    public override double CalculateArea()
+    {
+        return pi * radius * radius;
+    }
+
+}
+class MyController
+{
+    public static void Main()
+    {
+        Rectangle r = new Rectangle(11.50,59.20);
+        Circle c = new Circle(20.20);
+        
+        Console.WriteLine("area of rectangle :" +c.CalculateArea());
+        Console.WriteLine(" area of circle : " +r.CalculateArea());
+
+
+
+    }
+}
+
+
